@@ -92,3 +92,19 @@ target_link_libraries(netft_node netft_rdt_driver)
 target_link_libraries(netft_node ${Boost_LIBRARIES})
 target_link_libraries(netft_node ${catkin_LIBRARIES})
 
+install(TARGETS netft_rdt_driver lpfilter netft_utils_lean netft_utils netft_utils_sim netft_utils_cpp_test netft_node
+ ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+ LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+ RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(DIRECTORY include/
+ DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}/..
+ FILES_MATCHING PATTERN "*.h"
+ PATTERN ".svn" EXCLUDE
+)
+
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)
+
